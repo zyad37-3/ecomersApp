@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface WishlistContextType {
-    numberWishlist: number;
-    setnumberWishlist: Dispatch<SetStateAction<number>>;
-    productWishlist: productWishlistType;
-    setproductWishlist: Dispatch<SetStateAction<productWishlistType>>;
+  numberWishlist: number;
+  setnumberWishlist: Dispatch<SetStateAction<number>>;
+  productWishlist: productWishlistType | null;
+  setproductWishlist: Dispatch<SetStateAction<productWishlistType | null>>;
+  getprodWishlist: () => Promise<void>;
 }
-
-
+;
 export interface productWishlistType {
     status: string;
     count: number;

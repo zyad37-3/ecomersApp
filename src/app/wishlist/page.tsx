@@ -14,8 +14,8 @@ import addproductToCard from '../_action/CardAction';
 import Link from 'next/link';
 
 export default function wishlist() {
-    const { productWishlist, getprodWishlist } = useContext(WishlistContext)
-    const { setnumberOfCardItem, setcartproducts, cartproducts, settotalCartPrice } = useContext(CardContext)
+    const { productWishlist, getprodWishlist } = useContext(WishlistContext)!
+    const { setnumberOfCardItem, setcartproducts, cartproducts, settotalCartPrice } = useContext(CardContext)!
     const [looding, setlooding] = useState(false)
 
     const [error, seterror] = useState(false)

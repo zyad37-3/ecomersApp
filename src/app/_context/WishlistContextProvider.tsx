@@ -11,20 +11,21 @@ export const WishlistContext = createContext<WishlistContextType | null>(null);
 
 export default function WishlistContextProvider({ children }: { children: ReactNode }) {
     const [numberWishlist, setnumberWishlist] = useState(0);
-    const [productWishlist, setproductWishlist] = useState <productWishlistType|null>(null)
-    
+    const [productWishlist, setproductWishlist] = useState<productWishlistType | null>(null)
     async function getprodWishlist() {
-        try{
-        const res = await tokenWishlist()
-        console.log(res);
-        setproductWishlist(res)
-        setnumberWishlist(res?.data?.length || 0)
+        try {
+            const res = await tokenWishlist()
 
-        }catch(error){
-            console.log("error in getprodWishlist",error);
-            
+            if (!res) return
+
+            setproductWishlist(res)
+            setnumberWishlist(res?.data?.length || 0)
+
+        } catch (error) {
+            console.log("error in getprodWishlist", error)
         }
     }
+
     useEffect(() => {
 
         getprodWishlist()
@@ -35,7 +36,7 @@ export default function WishlistContextProvider({ children }: { children: ReactN
 
 
     return (
-        <WishlistContext.Provider value={{ getprodWishlist,numberWishlist, setnumberWishlist, productWishlist }}>
+        <WishlistContext.Provider value={{ setproductWishlist,getprodWishlist, numberWishlist, setnumberWishlist, productWishlist }}>
             {children}
         </WishlistContext.Provider>
     );

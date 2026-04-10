@@ -58,7 +58,7 @@ export  async function tokenWishlist() {
 
 
 }
-export  async function deledWishlist(id) {
+export  async function deledWishlist(id:string) {
 
     const token = await getmytoken()
     const res =await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`, {
