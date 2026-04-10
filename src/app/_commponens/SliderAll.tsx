@@ -1,8 +1,6 @@
-"use client"
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+"use client";
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -14,15 +12,21 @@ import { useEffect } from "react";
 import { Navigation, Pagination } from 'swiper/modules';
 
 interface SliderAllType {
-    ListOfemg: string[],
-    slidesPerView?: number,
-    spaceBetween?: number,
+  ListOfemg: string[];
+  slidesPerView?: number;
+  spaceBetween?: number;
 }
 
-export default function SliderAll({ slidesPerView = 1, spaceBetween = 0, ListOfemg }: SliderAllType) {
-    useEffect(() => {
-        AOS.init();
-    }, []);
+export default function SliderAll({
+  slidesPerView = 1,
+  spaceBetween = 0,
+  ListOfemg,
+}: SliderAllType) {
+  useEffect(() => {
+    AOS.init({ once: true });
+  }, []);
+
+  
 
     return (
         <Swiper
@@ -37,7 +41,7 @@ export default function SliderAll({ slidesPerView = 1, spaceBetween = 0, ListOfe
         //   onSwiper={(swiper) => console.log(swiper)}
         >
 
-            {ListOfemg.map((img) => <SwiperSlide key={index}>
+            {ListOfemg.map((img,index) => <SwiperSlide key={index}>
                 <div  className='  w-full h-full overlay relative z-10'>
 
                     <img className='w-full overlay  h-100  object-cover ' src={img} alt="photo" />
