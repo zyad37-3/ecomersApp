@@ -4,7 +4,7 @@ import { getUserCart } from "../_action/CardAction"
 import { CardResType, CartItemType } from "@/Types/card.Type";
 
 
-interface CardContextType {
+export interface CardContextType {
   numberOfCardItem: number;
   setnumberOfCardItem: Dispatch<SetStateAction<number>>;
   cartproducts: CartItemType[];

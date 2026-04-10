@@ -23,7 +23,7 @@ import { toast } from "sonner"
 import addproductToCard from "../_action/CardAction"
 import { TiDeleteOutline } from "react-icons/ti";
 export default function AddToCardBtn({ productId }: { productId: string }) {
-    const { setnumberOfCardItem, setcartproducts, settotalCartPrice } = useContext(CardContext)
+    const { setnumberOfCardItem, setcartproducts, settotalCartPrice } = useContext(CardContext)!
     const [looding, setlooding] = useState(false)
     const [success, setsuccess] = useState(false)
     const [error, seterror] = useState(false)

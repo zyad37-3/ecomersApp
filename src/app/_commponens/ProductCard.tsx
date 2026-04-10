@@ -19,7 +19,6 @@ export default function ProductCard({ product }: ProductCard) {
   
    
 
-    const discount = ((product.price - product.priceAfterDiscount) / product.price) * 100;
     
    
     
