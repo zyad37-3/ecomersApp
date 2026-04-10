@@ -9,12 +9,12 @@ interface AddWishlistProps {
 }
 export default function AddWishlist({ ProductId }: AddWishlistProps) {
     // const [love, setlove] = useState(false)
-    const { numberWishlist, setnumberWishlist, productWishlist, getprodWishlist } = useContext(WishlistContext)
+    const { numberWishlist, setnumberWishlist, productWishlist, getprodWishlist } = useContext(WishlistContext)!
 
 
     const love = productWishlist?.data?.some(p => p.id === ProductId)
 
-    async function deletwishlist(id) {
+    async function deletwishlist(id :string) {
         try {
             const res = await deledWishlist(id)
             console.log("delet", res);
