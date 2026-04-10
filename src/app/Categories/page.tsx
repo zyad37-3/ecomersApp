@@ -8,7 +8,7 @@ import { FaLayerGroup } from 'react-icons/fa6'
 export default function Categories() {
 
 
-    const [Categories, setCategories] = useState<brandsallTpyoe|null>(null)
+    const [Categories, setCategories] = useState<brandsallTpyoe[]>([])
     async function Categoriessall() {
   
       const res = await getCategories()
