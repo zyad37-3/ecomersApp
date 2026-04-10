@@ -14,6 +14,7 @@ interface CardContextType {
   cartId: string|null;
   setcartId: Dispatch<SetStateAction<string|null>>;
   loading: boolean;
+   getfronApi: () => Promise<void>;
 };
 
 
@@ -34,12 +35,12 @@ export default function CardContextProvider({ children }: { children: ReactNode 
 async function getfronApi() {
   try {
     const UserCart: CardResType = await getUserCart()
+console.log( "UserCart.status",UserCart.status);
 
-    if (UserCart.statusMsg === "fail") {
-      console.log("Token expired or invalid")
-      return
-    }
-
+    if (UserCart.status === "fail") {
+  console.log("Token expired or invalid")
+  return
+}
 
     setnumberOfCardItem(UserCart.numOfCartItems ?? 0)
     settotalCartPrice(UserCart?.data?.totalCartPrice ?? 0)

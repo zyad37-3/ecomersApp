@@ -21,6 +21,7 @@ product:ProductType;
 _id:string;
 subcategory:subcategory[]
 }
+
 export interface subcategory{
     name:string
 }

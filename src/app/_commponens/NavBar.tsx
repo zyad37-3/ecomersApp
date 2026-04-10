@@ -86,8 +86,8 @@ import { WishlistContext } from "../_context/WishlistContextProvider"
 
 
 export default function Navbar() {
-  const { setnumberOfCardItem, numberOfCardItem } = React.useContext(CardContext)
-  const { numberWishlist } = React.useContext(WishlistContext)
+  const { setnumberOfCardItem, numberOfCardItem } = React.useContext(CardContext)!
+  const { numberWishlist } = React.useContext(WishlistContext)!
   const sessien = useSession()
     function loginOut() {
     signOut({ redirect: true, callbackUrl: "/SignIn" })

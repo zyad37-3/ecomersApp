@@ -10,7 +10,11 @@ export interface shippingAddressType {
 
     }
 }
-
+type MyJwtPayload = {
+  id: string
+  iat?: number
+  exp?: number
+}
 export default async function creatCashOrder(cartId:string,shippingAddress:shippingAddressType): Promise<shippingAddressType> {
 
     const token = await getmytoken()
@@ -71,7 +75,7 @@ export  async function allorderApi() {
 
     const token = await getmytoken()
    
-           const tokenafterdecoded=jwtDecode(token as string)
+           const tokenafterdecoded=jwtDecode<MyJwtPayload>(token as string)
            const userId=tokenafterdecoded.id
     
     const res =await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/${userId}`, {

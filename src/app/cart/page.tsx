@@ -34,7 +34,7 @@ import { Product } from '@/servise/product';
 import Link from "next/link"
 export default function CartPage() {
   const [looding, setlooding] = useState<string | null>(null)
-  const { getfronApi,numberOfCardItem, cartproducts, totalCartPrice, setnumberOfCardItem, setcartproducts, settotalCartPrice } =useContext(CardContext)
+  const { getfronApi,numberOfCardItem, cartproducts, totalCartPrice, setnumberOfCardItem, setcartproducts, settotalCartPrice } =useContext(CardContext)!
 
 
 
@@ -98,7 +98,7 @@ export default function CartPage() {
           {cartproducts && cartproducts.length > 0  ?
             <>
               {
-                cartproducts.map((item: CartItemType) => <div className='flex gap-6 border border-#f3f4f6 rounded-xl mb-6  p-4 sm:p-5 shadow-sm'>
+                cartproducts.map((item: CartItemType) => <div key={item._id} className='flex gap-6 border border-[#f3f4f6] rounded-xl mb-6  p-4 sm:p-5 shadow-sm'>
 
                   <div className=' '>
 
@@ -116,7 +116,7 @@ export default function CartPage() {
                       <h1 className='font-semibold text-[18px]'>{item.product.title}</h1>
                       <div className='flex items-center gap-2 mt-1.5 mb-3'>
                         <div className='bg-linear-to-r from-[#F0FDF4] to-[#F3F4F6] w-fit py-1 px-2.5 rounded-xl'>
-                          <p className='font-medium text-[12px] text-[#15803D]'>{item.product.subcategory.name}</p>
+                          <p className='font-medium text-[12px] text-[#15803D]'>{item.product.subcategory?.[0]?.name}</p>
                         </div>
                         <p>.</p>
                         <p className='text-[#6A7282] text-[12px]'>SKU: 5CA0AD</p>
