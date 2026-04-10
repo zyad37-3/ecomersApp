@@ -35,11 +35,13 @@ export async function getUserCart(): Promise<CardResType> {
     })
 
     const finalRes = await res.json()
+   
+    
     return finalRes
 
   } catch (error) {
       console.log("errorUsercart",error);
-      
+      throw error
   }
 
 
