@@ -6,9 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 import { Navigation, Pagination } from 'swiper/modules';
-import { useEffect } from 'react';
+
 interface SliderAllType {
     ListOfemg: string[],
     slidesPerView?: number,
@@ -33,8 +37,8 @@ export default function SliderAll({ slidesPerView = 1, spaceBetween = 0, ListOfe
         //   onSwiper={(swiper) => console.log(swiper)}
         >
 
-            {ListOfemg.map((img) => <SwiperSlide>
-                <div className='  w-full h-full overlay relative z-10'>
+            {ListOfemg.map((img) => <SwiperSlide key={index}>
+                <div  className='  w-full h-full overlay relative z-10'>
 
                     <img className='w-full overlay  h-100  object-cover ' src={img} alt="photo" />
                     <div className=' py-20 p-4 absolute inset-0 bg-linear-to-r from-green-500/90 to-green-400/50 z-10 '>

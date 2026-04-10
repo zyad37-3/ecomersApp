@@ -16,12 +16,12 @@ interface ProductCard {
 }
 
 export default function ProductCard({ product }: ProductCard) {
-  
-   
 
-    
-   
-    
+
+
+
+
+
 
     return <>
 
@@ -42,10 +42,13 @@ export default function ProductCard({ product }: ProductCard) {
                 </Link>
 
             </div>
-            {product?.priceAfterDiscount &&product?.priceAfterDiscount!==0? <div className='absolute top-3 left-1 flex-center text-white w-11 h-6 rounded-sm bg-red-500 py-1 px-2'>
-                <p>-{Math.round(((product.price - product.priceAfterDiscount) / product.price) * 100)} %</p>
-            </div>:""
-            }
+            {product?.priceAfterDiscount != null && product.price > 0 && product.priceAfterDiscount < product.price ? (
+                <div className='absolute top-3 left-1 flex-center text-white w-11 h-6 rounded-sm bg-red-500 py-1 px-2'>
+                    <p>
+                        -{Math.round(((product.price - product.priceAfterDiscount) / product.price) * 100)}%
+                    </p>
+                </div>
+            ) : null}
             <div className=' pt-0.5'>
 
                 <img src={product.imageCover} className='  h-60 m-auto  ' alt={product.title} />

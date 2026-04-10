@@ -2,7 +2,7 @@ import { ProductType } from "./Product.type";
 
 export interface userCartType {
 createdAt:string;
-id:number;
+_id:number;
 paymentMethodType:string;
 shippingPrice:number;
 taxPrice:number;

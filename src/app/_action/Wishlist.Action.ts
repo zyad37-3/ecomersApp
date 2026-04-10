@@ -1,9 +1,9 @@
 "use server"
 import getmytoken from "@/utils/getmytoken"
-interface creatWishlist {
-     productId: string
-}
-export default async function creatWishlist(productId:creatWishlist) {
+// interface creatWishlist {
+//      productId: string
+// }
+export default async function creatWishlist(productId:string) {
 
     const token = await getmytoken()
     const res =await fetch(`https://ecommerce.routemisr.com/api/v1/wishlist`, {

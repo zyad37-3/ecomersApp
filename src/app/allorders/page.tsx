@@ -18,11 +18,10 @@ import { userCartType } from '../../Types/order';
 
 export default function allorders() {
   const [cartuser, setcartuser] = useState<userCartType[]>([])
-  const [open, setOpen] = useState<string|null>(null)
-  function bageGat(id:string) {
-    setOpen(open===id?null:id)
-
-  }
+  const [open, setOpen] = useState<string | null>(null)
+ function bageGat(id: string) {
+  setOpen(prev => (prev === id ? null : id))
+}
 
   async function allorderReq(): Promise<userCartType[]> {
 
@@ -60,7 +59,7 @@ export default function allorders() {
       {/* bodyy */}
 
       {cartuser?.map((item: userCartType) =>
-        <div key={item.id} className=' mb-3'>
+        <div key={item._id} className=' mb-3'>
 
           <div className='flex flex-item gap-5 p-5 rounded-xl border border-[#F3F4F6] shadow-sm hover:shadow-md'>
 
@@ -95,7 +94,7 @@ export default function allorders() {
 
               <div className='flex-item gap-1.5'>
                 <HiOutlineHashtag className='text-[#99A1AF] w-3 h-3 ' />
-                <h1 className='font-bold text-[18px] text-[#101828] '>{item.id}</h1>
+                <h1 className='font-bold text-[18px] text-[#101828] '>{item._id}</h1>
               </div>
               <div className='flex-item gap-3'>
                 <div className='text-[#6A7282] flex-item gap-1.5'>
@@ -124,11 +123,11 @@ export default function allorders() {
                 <div className=''>
 
                   {/* <DropdownMenubtn /> */}
-                  {open === item.id ?
+                  {open === item._id ?
 
-                    <button onClick={() => bageGat(item.id)} className="flex-item gap-2 bg-[#16a34a] px-4 py-2.5  rounded-xl font-semibold text-white shadow-lg " >Hide  <HiOutlineChevronUp /></button>
+                    <button onClick={() => bageGat(item._id)} className="flex-item gap-2 bg-[#16a34a] px-4 py-2.5  rounded-xl font-semibold text-white shadow-lg " >Hide  <HiOutlineChevronUp /></button>
                     :
-                    <button onClick={() => bageGat(item.id)} className="flex-item gap-2 bg-[#F3F4F6] px-4 py-2.5  rounded-xl font-semibold text-[#364153] shadow-lg hover:bg-gray-200" >Details  <HiOutlineChevronDown /></button>
+                    <button onClick={() => bageGat(item._id)} className="flex-item gap-2 bg-[#F3F4F6] px-4 py-2.5  rounded-xl font-semibold text-[#364153] shadow-lg hover:bg-gray-200" >Details  <HiOutlineChevronDown /></button>
 
                   }
                 </div>
@@ -138,7 +137,7 @@ export default function allorders() {
 
           </div>
           {/* opennnn */}
-          {open === item.id &&
+          {open ===  item._id  &&
             <div className='bg-gray-50/50 p-6'>
 
               <div className='flex-item gap-2 mb-4'>
