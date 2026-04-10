@@ -1,14 +1,6 @@
 "use client";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-
 import { Navigation, Pagination } from 'swiper/modules';
 
 interface SliderAllType {
@@ -22,11 +14,6 @@ export default function SliderAll({
   spaceBetween = 0,
   ListOfemg,
 }: SliderAllType) {
-  useEffect(() => {
-    AOS.init({ once: true });
-  }, []);
-
-  
 
     return (
         <Swiper
