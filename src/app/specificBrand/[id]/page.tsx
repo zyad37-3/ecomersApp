@@ -20,7 +20,7 @@ export default async function specificBrands({ params }: Params) {
     console.log(product);
 
     const res = await getBrandandsProduct(app.id)
-    console.log("brand gatt", res.data);
+    console.log("brand gatt", res);
 
     return <>
 
@@ -28,11 +28,11 @@ export default async function specificBrands({ params }: Params) {
         <div className='w-full h-60 bg-linear-to-r from-[#7F22FE] via-[#7F22FE] to-[#8E51FF] px-4 py-12 sm:py-16'>
             <div className=' flex-item gap-5'>
                 <div className='w-16 h-16 rounded-2xl text-white bg-white/20 shadow-xl flex-center ring-1 ring-white/30'>
-                    <img src={product.data.image} alt='' className='w-7.5 h-6 text-white' />
+                    <img src={product.image} alt='' className='w-7.5 h-6 text-white' />
                 </div>
                 <div>
-                    <h1 className='font-bold text-4xl text-white'>{product.data.name}</h1>
-                    <p className='font-medium text-[16px]  text-white'>Shop {product.data.name} products</p>
+                    <h1 className='font-bold text-4xl text-white'>{product.name}</h1>
+                    <p className='font-medium text-[16px]  text-white'>Shop {product.name} products</p>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ export default async function getBrandands() {
 
 
     const finalres=await res.json()
-    return finalres
+    return finalres.data
 }
 export  async function specificBrand(id:string) {
     try {
@@ -14,7 +14,7 @@ export  async function specificBrand(id:string) {
 
 
     const finalres=await res.json()
-    return finalres
+    return finalres.data
 
     } catch (error) {
         console.log("specificBrand",error);

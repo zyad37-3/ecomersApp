@@ -6,12 +6,12 @@ import React, { useEffect, useState } from 'react'
 import { FaTags } from 'react-icons/fa6'
 
 export default function Brands() {
-  const [brands, setbrands] = useState<brandsallTpyoe|null>(null)
+  const [brands, setbrands] = useState<brandsallTpyoe[]>([])
   async function brandsall() {
 
     const res = await getBrandands()
-    console.log(res.data);
-    setbrands(res.data)
+    console.log(res);
+    setbrands(res)
   }
   useEffect(()=>{
     brandsall()
