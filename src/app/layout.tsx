@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./_commponens/NavBar";
+import { Toaster } from "@/components/ui/sonner"
+import MySetionProvider from "./_provider/MySetionProvider";
+import CardContextProvider from "./_context/CardContextProvider";
+import "aos/dist/aos.css";
+import WishlistContextProvider from "./_context/WishlistContextProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +33,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+
+
+        <MySetionProvider>
+
+          <CardContextProvider >
+            <WishlistContextProvider>
+
+
+
+              <Toaster />
+              <Navbar />
+              {children}
+            </WishlistContextProvider>
+          </CardContextProvider>
+
+        </MySetionProvider>
       </body>
     </html>
   );
