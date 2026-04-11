@@ -37,7 +37,7 @@ export default function SignInFn() {
     // const resOk=await SignInAction(athe)
 
 
-    if (resOk) {
+    if (resOk?.ok) {
        console.log(resOk);
       toast.success("Account created success", {
         position: 'top-right',
@@ -48,7 +48,7 @@ export default function SignInFn() {
     } else {
       console.log(resOk);
       
-      toast.error(`${resOk}`, {
+      toast.error(`${resOk?.error}`, {
         position: 'top-right',
         richColors: true
       })

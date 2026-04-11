@@ -44,7 +44,7 @@ export default function AddToCardBtn({ productId }: { productId: string }) {
             settotalCartPrice(res.data.totalCartPrice)
             setcartproducts(res.data.products)
         } catch (error) {
-            console.log("false");
+            console.log("false" ,error);
             seterror(true)
             toast.error("not succes")
 

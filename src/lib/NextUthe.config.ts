@@ -43,7 +43,7 @@ callbacks: {
       return token;
     },
 
-    async session({ session, token }) {
+    async session({ session, token }) {[]
       if (session.user) {
         (session as any).realTokenFromBackEnd =
           token.realTokenFromBackEnd;
