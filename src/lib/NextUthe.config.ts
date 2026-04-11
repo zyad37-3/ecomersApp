@@ -28,25 +28,65 @@ export const NextAuthConfig: NextAuthOptions = {
                         name: finalres.user.name,
                         email: finalres.user.email,
                         realTokenFromBackEnd:finalres.token
-                    }
+                    }as any
                 }
                 return null
             },
 
         })
     ],
-    callbacks:{
-        jwt(params) {
-
-            console.log("params jwt hear",params);
-            
-            if (params.user){
-                params.token.realTokenFromBackEnd=params.user.realTokenFromBackEnd
-            }
-            return params.token
-        },
+callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.realTokenFromBackEnd = (user as any).realTokenFromBackEnd;
+      }
+      return token;
     },
-    pages: {
-        signIn: "/SignIn"
-    }
-}
+
+    async session({ session, token }) {
+      if (session.user) {
+        (session as any).realTokenFromBackEnd =
+          token.realTokenFromBackEnd;
+      }
+      return session;
+    },
+  },
+
+  pages: {
+    signIn: "/SignIn",
+  },
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     callbacks:{
+//         jwt(params) {
+
+//             console.log("params jwt hear",params);
+            
+//             if (params.user){
+//                 params.token.realTokenFromBackEnd=(params as any).user.realTokenFromBackEnd 
+//             }
+//             return params.token
+//         },
+//     },
+//     pages: {
+//         signIn: "/SignIn"
+//     }
+// }

@@ -4,15 +4,24 @@ import Link from 'next/link';
 import React from 'react'
 import { FaArrowRight, FaBoxOpen } from 'react-icons/fa6';
 interface Params {
-    params: { id: number; }
+    params: { id: string; }
 }
 
 
 
 
 
-
 export default async function specificBrands({ params }: Params) {
+
+
+
+
+
+
+
+
+
+    
     const app = await params
 
     console.log(app);
