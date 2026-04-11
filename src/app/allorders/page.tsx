@@ -65,7 +65,7 @@ export default function allorders() {
             <div className='flex flex-item gap-5 p-5 rounded-xl border border-[#F3F4F6] shadow-sm hover:shadow-md'>
 
               <div className='relative w-28 h-28 border rounded-xl border-[#F3F4F6] p-2.5 bg-[#F9FAFB] flex-center'>
-                <img src={item.cartItems[0].product.imageCover} className='w-22.5 h-22.5 object-cover bg-white' alt="" />
+                <img src={item?.cartItems[0]?.product?.imageCover} className='w-22.5 h-22.5 object-cover bg-white' alt="" />
                 <div className='absolute -top-2 -right-2  w-7 h-7 flex-center rounded-full text-white bg-black font-bold'>+2</div>
               </div>
 
@@ -148,13 +148,13 @@ export default function allorders() {
                   <p className="font-semibold text-[14px] ">Order Items</p>
                 </div>
 
-                {item.cartItems.map((productItem) => <div className="p-4 mb-3 rounded-lg bg-white flex-item gap-4 border border-[#F3F4F6] w-full">
+                {item?.cartItems?.map((productItem) => <div className="p-4 mb-3 rounded-lg bg-white flex-item gap-4 border border-[#F3F4F6] w-full">
                   <div className='w-16 h-16 border rounded-xl border-[#F3F4F6] p-2.5 bg-[#F9FAFB] flex-center'>
-                    <img src={productItem.product.imageCover} className='w-12 h-12 object-cover bg-white' alt="" />
+                    <img src={productItem?.product?.imageCover} className='w-12 h-12 object-cover bg-white' alt="" />
                   </div>
                   <div className='flex-item justify-between w-full'>
                     <div>
-                      <p className="font-medium text-[16px]">{productItem.product.title}</p>
+                      <p className="font-medium text-[16px]">{productItem?.product.title}</p>
                       <p className="font-medium text-[#364153] text-[14px]">{productItem.count} × {productItem.price} EGP</p>
                     </div>
                     <div>
