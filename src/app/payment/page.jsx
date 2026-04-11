@@ -62,6 +62,7 @@ export default function payment() {
                 const res = await creatCashOrder(cartId, userData)
                 console.log(res);
                 if (res.status == "success") {
+                    router.refresh();
                     router.push("/allorders")
                     await getfronApi()
                 }
@@ -69,6 +70,7 @@ export default function payment() {
             } else if (payment === "online") {
                 const res = await creatVisaOrder(cartId, userData)
                 console.log(res);
+                
                 window.open(res.session.url)
             }
         } catch (error) {
