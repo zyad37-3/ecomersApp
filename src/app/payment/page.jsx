@@ -62,7 +62,7 @@ export default function payment() {
                 const res = await creatCashOrder(cartId, userData)
                 console.log(res);
                 if (res.status == "success") {
-                    router.push("http://localhost:3000/allorders")
+                    router.push("/allorders")
                     await getfronApi()
                 }
 
