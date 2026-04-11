@@ -62,19 +62,22 @@ export default function payment() {
                 const res = await creatCashOrder(cartId, userData)
                 console.log(res);
                 if (res.status == "success") {
-                    router.refresh();
-                    router.push("/allorders")
+                    
                     await getfronApi()
+                    router.push("/allorders")
                 }
 
             } else if (payment === "online") {
                 const res = await creatVisaOrder(cartId, userData)
                 console.log(res);
-                
-                window.open(res.session.url)
+                 if (res?.session?.url){
+
+                    window.location.href = res.session.url;
+                    }
             }
         } catch (error) {
            console.log("payment error:", error);
+           alert("Payment failed, try again");
         }
         
     }
