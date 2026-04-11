@@ -45,7 +45,7 @@ export default async function creatCashOrder(cartId:string,shippingAddress:shipp
 export  async function creatVisaOrder(cartId:string,shippingAddress:shippingAddressType): Promise<shippingAddressType> {
 
     const token = await getmytoken()
-    const res =await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`, {
+    const res =await fetch(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://ecomers-app.vercel.app`, {
         headers: {
             "Content-Type": "application/json",
             token: token as string
@@ -62,7 +62,7 @@ export  async function creatVisaOrder(cartId:string,shippingAddress:shippingAddr
 
 
 
-
+// http://localhost:3000    بدل https://ecomers-app.vercel.app
 
 
     return finalRes
